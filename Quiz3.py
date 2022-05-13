@@ -89,7 +89,7 @@ connect = sqlite3.connect('search_history_db.sqlite')
 cursor = connect.cursor()
 
 #ცხრილის შექმნა
-# cursor.execute('CREATE TABLE history (id INTEGER PRIMARY KEY AUTOINCREMENT, IMDb_ID VARCHAR(30), Title VARCHAR(30), IMDb_Rate INTEGER, Metacritic_Rate INTEGER);')
+# cursor.execute('CREATE TABLE if not exists history (id INTEGER PRIMARY KEY AUTOINCREMENT, IMDb_ID VARCHAR(30), Title VARCHAR(30), IMDb_Rate INTEGER, Metacritic_Rate INTEGER);')
 
 #ინფორმაციის შეტანა
 cursor.execute('INSERT INTO history (IMDb_ID, Title, IMDb_Rate, Metacritic_Rate) VALUES(?,?,?,?)', (movie_id, req_dictID['title'], req_dictID['imDb'], req_dictID['metacritic']))
